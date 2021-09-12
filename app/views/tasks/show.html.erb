@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>タスク内容:</strong>
+  <%= @task.contents %>
+</p>
+
+<p>
+  <strong>対応期限:</strong>
+  <%= @task.task_limit_on %>
+</p>
+
+<p>
+  <strong>ステータス:</strong>
+  <%= @task.task_status %>
+</p>
+
+<%= link_to '編集する', edit_task_path(@task) %> |
+<%= link_to '一覧に戻る', tasks_path %>
