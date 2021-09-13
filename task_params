@@ -1,0 +1,14 @@
+
+[1mFrom:[0m /home/vagrant/workspace/02_working/manyo/app/controllers/tasks_controller.rb:24 TasksController#create:
+
+    [1;34m23[0m: [32mdef[0m [1;34mcreate[0m
+ => [1;34m24[0m:   binding.pry
+    [1;34m25[0m:   @task = [1;34;4mTask[0m.new(task_params)
+    [1;34m26[0m:   [1;34m#binding.irb[0m
+    [1;34m27[0m:   [32mif[0m @task.save
+    [1;34m28[0m:     redirect_to tasks_path, [35mnotice[0m: [31m[1;31m"[0m[31m登録しました！[1;31m"[0m[31m[0m
+    [1;34m29[0m:   [32melse[0m
+    [1;34m30[0m:     render [33m:new[0m
+    [1;34m31[0m:   [32mend[0m
+    [1;34m32[0m: [32mend[0m
+
