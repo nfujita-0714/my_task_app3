@@ -16,7 +16,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         # ここに「タスク名」というラベル名の入力欄に内容をfill_in（入力）する処理を書く
         # ここに「タスク詳細」というラベル名の入力欄に内容をfill_in（入力）する処理を書く
         fill_in 'task[title]', with: 'test_title'
-        fill_in 'task[contents]', with: 'test_content'
+        fill_in 'task[content]', with: 'test_content'
 
         # 3. 「登録する」というvalue（表記文字）のあるボタンをクリックする
         # ここに「登録する」というvalue（表記文字）のあるボタンをclick_onする（クリックする）する処理を書く
@@ -48,7 +48,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         # visit task_path
         # click_on '編集する'
         # fill_in 'task[title]', with: 'test_title2'
-        # fill_in 'task[contents]', with: 'test_content2'
+        # fill_in 'task[content]', with: 'test_content2'
         # click_on '登録'
         # expect(page).to have_content 'task_title'
         task = FactoryBot.create(:task)

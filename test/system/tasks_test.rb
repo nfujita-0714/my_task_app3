@@ -14,7 +14,7 @@ class TasksTest < ApplicationSystemTestCase
     visit tasks_url
     click_on "New Task"
 
-    fill_in "Contents", with: @task.contents
+    fill_in "Content", with: @task.content
     fill_in "Task limit on", with: @task.task_limit_on
     fill_in "Task status", with: @task.task_status
     fill_in "Title", with: @task.title
@@ -29,7 +29,7 @@ class TasksTest < ApplicationSystemTestCase
     visit tasks_url
     click_on "Edit", match: :first
 
-    fill_in "Contents", with: @task.contents
+    fill_in "Content", with: @task.content
     fill_in "Task limit on", with: @task.task_limit_on
     fill_in "Task status", with: @task.task_status
     fill_in "Title", with: @task.title

@@ -22,15 +22,10 @@ class TasksController < ApplicationController
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
-
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, notice: "タスクが登録されました！" }
-        format.json { render :show, status: :created, location: @task }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+    if @task.save
+      redirect_to tasks_path, notice: "登録しました！"
+    else
+      render :new
     end
   end
 
@@ -64,6 +59,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :contents, :user_id, :task_limit_on, :task_status)
+      params.require(:task).permit(:title, :content, :user_id, :task_limit_on, :task_status)
     end
 end
