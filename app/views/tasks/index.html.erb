@@ -19,8 +19,8 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= task.content %></td>
-        <td><%= task.task_limit_on %></td>
-        <td><%= task.task_status %></td>
+        <td><%= task.limit_on %></td>
+        <td><%= task.status %></td>
         <td><%= link_to '詳細画面へ', task %></td>
         <td><%= link_to '編集画面へ', edit_task_path(task) %></td>
         <td><%= link_to '削除画面へ', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
