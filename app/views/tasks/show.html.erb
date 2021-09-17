@@ -12,12 +12,12 @@
 
 <p>
   <strong>対応期限:</strong>
-  <%= @task.task_limit_on %>
+  <%= @task.limit_on %>
 </p>
 
 <p>
   <strong>ステータス:</strong>
-  <%= @task.task_status %>
+  <%= @task.status %>
 </p>
 
 <%= link_to '編集する', edit_task_path(@task) %> |
