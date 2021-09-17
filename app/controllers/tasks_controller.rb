@@ -5,8 +5,15 @@ class TasksController < ApplicationController
   def index
     if params[:sort_expired]
       @tasks = Task.all.order(limit_on: :desc)
-    else
+    elsif
       @tasks = Task.all.order(created_at: :desc)
+    end
+    if params[:search_title].present? && params[:search_status].present?
+      @tasks = Task.search_title(params[:search_title]).search_status(params[:search_status])
+    elsif params[:search_title].present?
+      @tasks = Task.search_title(params[:search_title])
+    elsif params[:search_status].present?
+      @tasks = Task.search_status(params[:search_status])
     end
   end
   # GET /tasks/1 or /tasks/1.json

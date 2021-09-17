@@ -27,11 +27,6 @@
   </div>
 
   <div class="field">
-  <%= form.label :登録日時 %>
-  <%= form.date_select :created_at %>
-</div>
-
-  <div class="field">
     <%= form.label :ステータス %>
     <%= form.select :status, Task.statuses.keys %>
   </div>
