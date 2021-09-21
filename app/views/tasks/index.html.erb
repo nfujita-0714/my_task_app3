@@ -13,7 +13,7 @@
   <% end %>
 </div>
 
-#<%= t('view.sample') %>
+
 <h1>タスク一覧</h1>
 <p><%= link_to "終了期限でソートする", tasks_path(sort_expired: "true") %></p>
 <p><%= link_to "優先順位でソートする", tasks_path(sort_priority: "true") %></p>
@@ -40,9 +40,9 @@
         <td class="task_row"><%= task.created_at %></td>
         <td class="task_row"><%= task.status %></td>
         <td class="task_row"><%= task.priority %></td>
-        <td><%= link_to '詳細画面へ', task %></td>
-        <td><%= link_to '編集画面へ', edit_task_path(task) %></td>
-        <td><%= link_to '削除画面へ', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><button type="button" class="btn btn-outline-primary"><%= link_to '詳細画面へ', task %></button></td>
+        <td><button type="button" class="btn btn-outline-success"><%= link_to '編集画面へ', edit_task_path(task) %></button></td>
+        <td><button type="button" class="btn btn-outline-primary"><%= link_to '削除画面へ', task, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>
