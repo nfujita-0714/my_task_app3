@@ -4,16 +4,18 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     if params[:sort_expired]
-      @tasks = Task.all.order(limit_on: :desc)
+      @tasks = Task.all.order(limit_on: :desc).page(params[:page]).per(5)
+    elsif params[:sort_priority]
+      @tasks = Task.all.order(priority: :asc).page(params[:page]).per(5)
     elsif
-      @tasks = Task.all.order(created_at: :desc)
+      @tasks = Task.all.order(created_at: :desc).page(params[:page]).per(5)
     end
     if params[:search_title].present? && params[:search_status].present?
-      @tasks = Task.search_title(params[:search_title]).search_status(params[:search_status])
+      @tasks = Task.search_title(params[:search_title]).search_status(params[:search_status]).page(params[:page]).per(5)
     elsif params[:search_title].present?
-      @tasks = Task.search_title(params[:search_title])
+      @tasks = Task.search_title(params[:search_title]).page(params[:page]).per(5)
     elsif params[:search_status].present?
-      @tasks = Task.search_status(params[:search_status])
+      @tasks = Task.search_status(params[:search_status]).page(params[:page]).per(5)
     end
   end
   # GET /tasks/1 or /tasks/1.json

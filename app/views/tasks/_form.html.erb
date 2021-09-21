@@ -28,13 +28,13 @@
 
   <div class="field">
     <%= form.label :ステータス %>
-    <%= form.select :status, Task.statuses.keys %>
+    <%= form.select :status, Task.statuses.keys , include_blank: "選択して下さい" %>
   </div>
 
-  <div class="field">
-  <%= form.label :優先度 %>
-  <%= form.text_field :priority %>
-</div>
+  <div class="priority">
+    <%= form.label :priority, "優先順位" %>
+    <%= form.select :priority, Task.priorities.keys.to_a , include_blank: "選択して下さい" %>  
+  </div>
 
   <div class="actions">
     <%= form.submit "登録" %>

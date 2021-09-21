@@ -6,7 +6,7 @@
     <%= form.label :'タスク名' %>
     <%= form.text_field :search_title %>
     <%= form.label :'ステータス' %>
-    <%= form.select :search_status, Task.statuses.keys %>
+    <%= form.select :search_status, Task.statuses.keys, include_blank:"選択して下さい" %>
     <%= form.submit '検索', name: 'search' %>
 
     <%= link_to '検索終了', tasks_path %>
@@ -15,8 +15,8 @@
 
 #<%= t('view.sample') %>
 <h1>タスク一覧</h1>
-<%= link_to "終了期限でソートする", tasks_path(sort_expired: "true") %>
-
+<p><%= link_to "終了期限でソートする", tasks_path(sort_expired: "true") %></p>
+<p><%= link_to "優先順位でソートする", tasks_path(sort_priority: "true") %></p>
 
 <table>
   <thead>
@@ -51,3 +51,4 @@
 <br>
 
 <%= link_to '新規課題作成', new_task_path %>
+<%= paginate @tasks %>
