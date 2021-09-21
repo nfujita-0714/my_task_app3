@@ -1,7 +1,8 @@
+<span class="d-block p-2 bg-primary text-white"><h2>タスク一覧</h2></span>
 <p id="notice"><%= notice %></p>
 
 <div>
-  <h3>検索</h3>
+  <h4>検索</h4>
   <%= form_with model: @task, method: :get, local: true do |form| %>
     <%= form.label :'タスク名' %>
     <%= form.text_field :search_title %>
@@ -13,8 +14,6 @@
   <% end %>
 </div>
 
-
-<h1>タスク一覧</h1>
 <p><%= link_to "終了期限でソートする", tasks_path(sort_expired: "true") %></p>
 <p><%= link_to "優先順位でソートする", tasks_path(sort_priority: "true") %></p>
 
