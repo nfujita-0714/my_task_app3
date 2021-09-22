@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Manyo</title>
+    <title>ManyoApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <% if logged_in? %>
+            <li class="active"><%= link_to "タスク登録", new_task_path %></li>
+            <li class="active"><%= link_to "タスク一覧", tasks_path %>
+            <li class="active"><%= link_to "アカウント詳細", user_path(current_user.id) %></li>
+            <li class="active"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+              <% if current_user.admin? %>
+                <li class="active"><%= link_to "管理者用一覧ページ", admin_users_path %></li>
+              <% end %>
+          <% else %>
+            <li class="active"><%= link_to "ユーザー登録", new_user_path %></li>
+            <li class="active"><%= link_to "ログイン", new_session_path %></li>
+            <li class="active"><%= link_to "タスク一覧", tasks_path %></li>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+    <div class="alert alert-success">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
