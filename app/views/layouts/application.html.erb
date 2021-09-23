@@ -11,7 +11,6 @@
 
   <body>
     <header>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% if logged_in? %>
             <li class="active"><%= link_to "タスク登録", new_task_path %></li>
@@ -26,7 +25,6 @@
             <li class="active"><%= link_to "ログイン", new_session_path %></li>
             <li class="active"><%= link_to "タスク一覧", tasks_path %></li>
           <% end %>
-        </div>
       </nav>
     </header>
     <div class="alert alert-success">

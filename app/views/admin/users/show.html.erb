@@ -31,7 +31,8 @@
       <% if @user.id==@current_user.id %>
         <%= link_to "編集", edit_user_path(@user), class: 'btn btn-success' %>
         <%= link_to '削除', user_path(@user), method: :delete, class: 'btn btn-danger', data: { confirm: '本当に削除しますか?' } %>
-      <% end %>
+        
+        <% end %>
     </div>
   </div>
 </div>
