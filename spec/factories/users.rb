@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :admin_user, class: User do
     name {'admin_name'}
-    email {'admin_email1@gmail.com'}
+    email {'admin_email@gmail.com'}
     password {'adminuser'}
     password_confirmation {'adminuser'}
     admin {true}
