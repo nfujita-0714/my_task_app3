@@ -5,4 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(name: 'fujita', email:'fujita@gmail.com', password: 'hkN0714!!!', password_confirmation: 'hkN0714!!!', admin: true)
+
+Label.create([
+  { name: 'ラベル1' },
+  { name: 'ラベル2' },
+  { name: 'ラベル3' },
+  { name: 'ラベル4' },
+  { name: 'ラベル5' }
+]) 
