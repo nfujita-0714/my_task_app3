@@ -12,14 +12,6 @@
   User.create!(name: name, email: email, password: password, password_confirmation: password)
 end
 
-Label.create([
-  { name: 'ラベル1' },
-  { name: 'ラベル2' },
-  { name: 'ラベル3' },
-  { name: 'ラベル4' },
-  { name: 'ラベル5' }
-]) 
-
 10.times do |n|
   Label.create!(
     name: "ラベル#{n + 1}"
