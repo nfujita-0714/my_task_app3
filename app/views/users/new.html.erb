@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>ユーザー登録</h2>
+  <%= form_with(model: @user, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name ,class: "form-control" %>
+      <%= f.label :email %>
+      <%= f.email_field :email ,class: "form-control"%>
+      <%= f.label :password %>
+      <%= f.password_field :password ,class: "form-control"%>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation,class: "form-control"%>
+      </div>
+    <div class="submit_record">
+      <%= f.submit "登録" ,class: "btn btn-default" %>
+    </div>
+  <% end %>
+</div>
