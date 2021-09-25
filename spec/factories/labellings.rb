@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :labelling do
-    task { nil }
-    label { nil }
+    association :label
+    association :task
   end
 end
