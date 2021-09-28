@@ -1,18 +1,24 @@
 FactoryBot.define do
   factory :task do
-    # 下記の内容は実際に作成するカラム名に合わせて変更してください
-    title { 'test_title' }
-    content { 'test_content' }
-    limit_on { DateTime.now }
-    status { "未着手" }
-    priority { "高" }
+    title { 'test_title1' }
+    content { 'test_content1' }
+    limit_on { '2021-10-11 00:00:00' }
+    status {'未着手'}
+    priority {'低'}
+    association :user, user: :general_user
+    after(:create) do |task|
+      create_list(:labelling, 1, task: task, label: create(:label))
+    end
   end
   factory :second_task, class: Task do
-    # 下記の内容は実際に作成するカラム名に合わせて変更してください
     title { 'test_title2' }
     content { 'test_content2' }
-    limit_on { DateTime.now + 10 }
-    status { "着手中" }
-    priority { "高" }
+    limit_on {'2021-10-21 00:00:00'}
+    status {'着手中'}
+    priority {'低'}
+    association :user, user: :general_user
+    after(:create) do |second_task|
+      create_list(:labelling, 1, task: second_task, label: create(:label))
+    end
   end
 end

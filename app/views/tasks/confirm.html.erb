@@ -1,0 +1,30 @@
+<div>
+  <div class="col-md-4 offset-md-4">
+    <h2 class="text-center pt-5">以下の内容で作成しますか？</h2>
+    <%= form_with(model: @task, local: true) do |form| %>
+      <%= form.hidden_field :title %>
+      <p>タスク名:<%= @task.title %></p>
+
+      <%= form.hidden_field :content %>
+      <p>内容:<%= @task.content %></p>
+
+      <%= form.hidden_field :limit_on %>
+      <p>終了期限:<%= @task.limit_on %></p>
+
+      <%= form.hidden_field :status %>
+      <p>ステータス:<%= @task.status %></p>
+
+      <%= form.hidden_field :priority %>
+      <p>優先順位:<%= @task.priority %></p>
+
+      <% @task.label_ids.each do |id| %>
+        <%= form.hidden_field :label_ids, multiple: true, value: id %>
+      <% end %>
+      <% @task.labels.each do |label| %>
+        <p>ラベル:<%= label.name %></p>
+      <% end %>
+      <%= form.submit '登録' %>
+      <%= form.submit '戻る', name: 'back' %>
+    <% end %>
+  </div>
+</div>
